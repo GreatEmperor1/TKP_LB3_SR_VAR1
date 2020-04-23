@@ -1,0 +1,37 @@
+// Server.idl : IDL source for Server
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Server.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(A53055CF-5E9B-4FE1-A22C-8656070D0FF6),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IFun : IDispatch{
+	[id(1), helpstring("Два входных")] HRESULT Fun11([in] LONG x11, [in] LONG y11, [out, retval] FLOAT* z11);
+	[id(2), helpstring("Три входных")] HRESULT Fun12([in] LONG a12, [in] LONG b12, [in] LONG c12, [out, retval] FLOAT* d12);
+	[id(3)] HRESULT Fun13([in] DOUBLE in13, [out, retval] DOUBLE* out13);
+};
+[
+	uuid(24C9F8FA-F5B3-4571-9346-2C21C5B6D0A3),
+	version(1.0),
+]
+library ServerLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(B58FA039-123C-4043-AC11-F3BFE9AC558E)		
+	]
+	coclass CoFun
+	{
+		[default] interface IFun;
+	};
+};
+

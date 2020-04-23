@@ -1,0 +1,26 @@
+HKCR
+{
+	Server.CoFun.1 = s 'CoFun Class'
+	{
+		CLSID = s '{B58FA039-123C-4043-AC11-F3BFE9AC558E}'
+	}
+	Server.CoFun = s 'CoFun Class'
+	{		
+		CurVer = s 'Server.CoFun.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B58FA039-123C-4043-AC11-F3BFE9AC558E} = s 'CoFun Class'
+		{
+			ProgID = s 'Server.CoFun.1'
+			VersionIndependentProgID = s 'Server.CoFun'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{24C9F8FA-F5B3-4571-9346-2C21C5B6D0A3}'
+			Version = s '1.0'
+		}
+	}
+}
